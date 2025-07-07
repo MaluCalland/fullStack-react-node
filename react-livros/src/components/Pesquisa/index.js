@@ -25,11 +25,26 @@ const Subtitulo = styled.h3`
         margin-bottom: 40px;
 `
 
+const Resultado = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    cursor: pointer;
+    p {
+        width: 200px;
+    }
+    img {
+        width: 100px;
+    }
+    &:hover {
+        border: 1px solid white;
+    }
+`
+
 function Pesquisa() {
     //constante com parametros - valor inicial do estado = string vazia
     const [livrosPesquisados, setLivrosPesquisados] = useState([]);
-
-    console.log(livrosPesquisados)
 
     return (
         <PesquisaContainer>
@@ -44,6 +59,12 @@ function Pesquisa() {
                 }}
                 // onBlur={evento => setTextoDigitado(evento.target.value)} quando digitado no input, o que for escrito aparece no console
             />
+            { livrosPesquisados.map( livro => (
+                <Resultado>
+                    <img src={livro.src}/>
+                    <p>{livro.nome}</p>
+                </Resultado>
+            )) }
         </PesquisaContainer>
     )
 }
