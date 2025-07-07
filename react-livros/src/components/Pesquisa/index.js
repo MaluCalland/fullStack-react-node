@@ -1,3 +1,4 @@
+import { useState } from "react";
 import Input from "../Input";
 import styled from "styled-components";
 
@@ -24,13 +25,18 @@ const Subtitulo = styled.h3`
 `
 
 function Pesquisa() {
+    //constante com parametros - valor inicial do estado = string vazia
+    const [textoDigitado, setTextoDigitado] = useState('');
+
     return (
         <PesquisaContainer>
             <Titulo>Já sabe por onde começar?</Titulo>
             <Subtitulo>Encontre seu livro em nossa estante.</Subtitulo>
             <Input
                 placeholder="Escreva sua próxima leitura"
+                onBlur={evento => setTextoDigitado(evento.target.value)} //quando digitado no input, o que for escrito aparece no console
             />
+            <p>{textoDigitado}</p>
         </PesquisaContainer>
     )
 }
