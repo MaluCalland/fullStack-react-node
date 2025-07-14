@@ -3,7 +3,12 @@ const { Router } = require("express")
 const router = Router()
 
 router.get('/', (req, res) => {
-    res.send('Olá mundo da Alura do Brasil!')
+    try {
+        res.send('Olá mundo da Alura do Brasil!')
+    } catch (error) {
+        res.status(500)
+        res.send(error.message)
+    }
 })
 
 router.post('/', (req, res) => {
