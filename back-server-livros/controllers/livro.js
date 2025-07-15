@@ -1,8 +1,9 @@
-// controladores são responsáveis pela lógica da aplicação, coordenando que resposta deve ser retornada em cada situação.
+const fs = require("fs");
 
 function getLivros(req, res) {
     try {
-        res.send('Olá mundo da Alura do Brasil!')
+        const livros = JSON.parse( fs.readFileSync("livros.json") )
+        res.send(livros)
     } catch (error) {
         res.status(500)
         res.send(error.message)

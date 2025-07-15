@@ -1,12 +1,12 @@
 //ler e escrever arquivos, em que se insere dados no JSON e os lê depois
-const fs = require("fs")
+// const fs = require("fs")
 
-const dadosAtuais = JSON.parse(fs.readFileSync("livros.json"))
-const novoDado = { id:'3', nome: 'Livro mais que demais' }
+// const dadosAtuais = JSON.parse(fs.readFileSync("livros.json"))
+// const novoDado = { id:'3', nome: 'Livro mais que demais' }
 
-fs.writeFileSync("livros.json", JSON.stringify([...dadosAtuais, novoDado ]))
+// fs.writeFileSync("livros.json", JSON.stringify([...dadosAtuais, novoDado ]))
 
-console.log(JSON.parse(fs.readFileSync("livros.json")))
+// console.log(JSON.parse(fs.readFileSync("livros.json")))
 
 //readFileSync(): funcao de ler os dados - recebe apenas o caminho até o arquivo
 //parse(): transformar
