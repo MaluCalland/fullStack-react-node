@@ -19,8 +19,21 @@ function insereLivro (livroNovo) {
     fs.writeFileSync("livros.json", JSON.stringify(novaListaDeLivros))
 }
 
+function modificaLivro(modificacoes, id) {
+    let livrosAtuais = JSON.parse(fs.readFileSync("livros.json"));
+    // descobriremos qual é o livro da lista livrosAtuais cujo índice possui um id igual ao valor recebido nos parâmetros, o qual enviamos na requisição. Este será o livro que vamos modificar.
+    const indiceModificado = livrosAtuais.findIndex( livro => livro.id === id) //indice do elemento que vai modificar
+//O comando livrosAtuais[indiceModificado] criará um objeto novo em um índice específico de livrosAtuais com todos os campos que existem neste último. Já o modificacoes consiste em um objeto que possui os campos com os dados a serem alterados.
+//Quando realizamos o Spreading de livrosAtuais[indiceModificado], examinamos todos os campos que este item possui e criamos um objeto para cada um deles. Já o Spreading de modificacoes compara os campos modificados com os objetos de livrosAtuais.
+//Caso exista um objeto compatível com o campo modificado, ele será substituído pelo conteúdo de modificacoes,mantendo os outros campos inalterados. Caso não haja este objeto, um novo campo será criado.
+    const conteudoMudado = { ...livrosAtuais[indiceModificado], ...modificacoes }
+    livrosAtuais[indiceModificado] = conteudoMudado
+    fs.writeFileSync("livros.json", JSON.stringify(livrosAtuais))
+}
+
 module.exports = {
     getTodosLivros,
     getLivrosPorId,
-    insereLivro
+    insereLivro,
+    modificaLivro
 }
