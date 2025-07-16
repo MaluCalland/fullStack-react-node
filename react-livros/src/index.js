@@ -1,9 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { createGlobalStyle } from 'styled-components'; //estilos utilizados em toda aplicação
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Header from './components/Header';
+import Home from './routes/Home';
+import Favoritos from './routes/Favoritos';
 //<BrowserRouter> : encapsula rotas, permitindo a criacao delas
 //<Routes> : anuncia a presenca de rotas
 //<Route> : rota prorpiamente dita
@@ -34,9 +36,10 @@ root.render(
   <React.StrictMode>
     <GlobalStyle/>
     <BrowserRouter> 
+      <Header/>
       <Routes>
-        <Route path="/favoritos" element={<p>Oi!</p>}/> 
-        <Route path="/" element={ <App /> }/>
+        <Route path="/favoritos" element={<Favoritos/>}/> 
+        <Route path="/" element={ <Home /> }/>
       </Routes>
     </BrowserRouter>
   </React.StrictMode>
