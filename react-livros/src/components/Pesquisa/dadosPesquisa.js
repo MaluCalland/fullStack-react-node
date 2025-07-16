@@ -7,7 +7,3 @@ export const livros = [
     {nome: 'Cangaceiro em JavaScript', id: 3, src: livro},
     {nome: 'Aventureiros do Java', id: 4, src: livro},
 ]
-
-export const autores = [
-
-]
