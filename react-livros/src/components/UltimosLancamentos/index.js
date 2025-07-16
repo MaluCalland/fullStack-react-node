@@ -34,7 +34,7 @@ function UltimosLancamentos() {
                 ) ) }
             </NovosLivrosContainer>
             <CardRecomenda
-                titulo= "Talvex você se interesse por..."
+                titulo= "Talvez você se interesse por..."
                 subtitulo= "Angular 11"
                 descricao= "Construindo uma aplicação integrada com a platafroma Google."
                 img= {imagemLivro}

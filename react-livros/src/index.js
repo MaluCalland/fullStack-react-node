@@ -2,8 +2,11 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import { createGlobalStyle } from 'styled-components';
-
+import { createGlobalStyle } from 'styled-components'; //estilos utilizados em toda aplicação
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+//<BrowserRouter> : encapsula rotas, permitindo a criacao delas
+//<Routes> : anuncia a presenca de rotas
+//<Route> : rota prorpiamente dita
 //nao remove body nem code porque se referem a elementos, nao a classes
 const GlobalStyle = createGlobalStyle`
   body {
@@ -30,7 +33,12 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <GlobalStyle/>
-    <App />
+    <BrowserRouter> 
+      <Routes>
+        <Route path="/favoritos" element={<p>Oi!</p>}/> 
+        <Route path="/" element={ <App /> }/>
+      </Routes>
+    </BrowserRouter>
   </React.StrictMode>
 );
 
