@@ -8,7 +8,7 @@ const PesquisaContainer = styled.section`
         color: #FFF;
         text-align: center;
         padding: 85px 0;
-        height: 270px;
+        height: 470px;
         width: 100%;
 `
 
