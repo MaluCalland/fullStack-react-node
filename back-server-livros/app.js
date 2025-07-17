@@ -1,9 +1,11 @@
 const express = require('express');
-const rotaLivro = require("./routes/livro.js")
+const rotaLivro = require("./routes/livro.js");
+const cors = require('cors');
 
 const app = express(); //minha aplicacao Express - cria uma aplicacao express usando express()
 
 app.use(express.json()) //habilita o uso do body JSON 
+app.use(cors({ origin: "*" }))
 
 app.use("/livros", rotaLivro) 
 
