@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import styled from 'styled-components'; //ajuda a criar containers (encapsulam conteudos, guardado seus elementos)
-import { getFavoritos } from '../services/favoritos';
+import { deleteFavoritos, getFavoritos } from '../services/favoritos';
 import livroImg from '../image/livro.png'
 
 const AppContainer = styled.div`
@@ -44,12 +44,17 @@ const Titulo = styled.h2`
 `
 
 function Favoritos() {
-
   const [favoritos, setFavoritos] = useState([])
 
   async function fetchFavoritos() {
     const favoritosDaAPI = await getFavoritos()
     setFavoritos(favoritosDaAPI)
+  }
+
+  async function deletarFavoritos(id) {
+    await deleteFavoritos(id)
+    await fetchFavoritos()
+    alert(`Livro de id: ${id} deletado`)
   }
 
   useEffect(() => {
@@ -61,14 +66,12 @@ function Favoritos() {
      <div>
        <Titulo>Aqui estão seus livros favoritos:</Titulo>
        <ResultadoContainer>
-         {
-           favoritos.length !== 0 ? favoritos.map(favorito => (
-             <Resultado>
-               <img src={livroImg}/>
-               <p>{favorito.nome}</p>
-             </Resultado>
-           )) : null
-         }
+        { favoritos.map( favorito => {
+          <Resultado onClick={() => deletarFavoritos(favorito.id)}>
+            <img src={livroImg}/>
+            <p>{favorito.nome}</p>
+          </Resultado> })
+        }
        </ResultadoContainer>
      </div>
    </AppContainer>

@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import Input from "../Input";
 import styled from "styled-components";
 import {getLivros} from '../../services/livros.js'
+import { postFavoritos } from "../../services/favoritos.js";
 
 const PesquisaContainer = styled.section`
         background-image: linear-gradient(90deg, #002F52 35%, #326589 165%);
@@ -57,6 +58,11 @@ function Pesquisa() {
         setLivros(livrosDaAPI) //pegar os livros da API e colocar os liros no nosso estado
     }
 
+    async function insertFavorito(id) {
+        await postFavoritos(id)
+        alert(`Livro de id: ${id} inserido!`)
+    }
+
     return (
         <PesquisaContainer>
             <Titulo>Já sabe por onde começar?</Titulo>
@@ -71,7 +77,7 @@ function Pesquisa() {
                 // onBlur={evento => setTextoDigitado(evento.target.value)} quando digitado no input, o que for escrito aparece no console
             />
             { livrosPesquisados.map( livro => (
-                <Resultado>
+                <Resultado onClick={() => insertFavorito(livro.id)}>
                     <img src={livro.src}/>
                     <p>{livro.nome}</p>
                 </Resultado>
