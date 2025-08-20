@@ -1,12 +1,12 @@
-# Projeto Full Stack
-> Aplicação web de ponta a ponta utilizando React e Node.js.
+# Projeto Full Stack: Livraria Online 
+Aplicação web de ponta a ponta utilizando *React* e *Node.js*.
 
-## Sobre
-> Aplicação web, como livraria online, que permitirá ao usuário salvar seus livros favoritos e descobrir novos livros para ler.
+## Descrição
+Aplicação web de uma *livraria online*, onde o usuário pode *explorar novos livros, salvar seus favoritos e gerenciar sua coleção pessoal*. A aplicação integra front-end e back-end para oferecer uma experiência completa e interativa.
 
 ## Tecnologias Utilizadas
-> React no front-end: interface da aplicação.
+> React (Front-end): desenvolvimento da interface do usuário, com foco em responsividade e usabilidade.
 
-> Node.js no back-end: desenvolvimento da API para realizar operações CRUD.
+> Node.js (back-end): criação da API para operações CRUD (Create, Read, Update, Delete).
 
-> Axios: conectar a API com o front-end - realiza requisições HTTP e fluxo de navegação entre as páginas da aplicação.
+> Axios: consumo da API no front-end, com requisições HTTP e controle do fluxo de navegação entre páginas.
